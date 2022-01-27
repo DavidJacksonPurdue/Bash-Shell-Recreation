@@ -1,7 +1,12 @@
-I implemented all required features of the shell specified by the prompt
+This is a school project to recreate a command shell using a bash interpreter. While there was some existing skeleton code (primarily the test files and some very basic
+functionality to make the shell simply run), the majority of the shell was written by me. The shell uses the lex and yacc files to parse command inputs, and command.cc interprets
+and executes them. shell.cc is used primarily for initialization.
 
-A known issue with my shell is that there are file descriptor and memory leaks
+The command shell has all the typical features of other shells (E.G. piping, file redirection, subshell, wildcarding, command history, environment variables, etc.) with one 
+noteable exception being the lack of tab auto completion. There is a known memory and file descriptor leak in my shell interpretation caused by subshelling.
 
-The additional features that I implemented are the variable prompt and on_error statements
-changing the environment variable "PROMPT" will print a new prompt. Changing the environment variable
-"ON_ERROR" will change the error message printed by an unsuccessful command.
+To exit the shell, type control + X to forcibly kill it or type "exit" to quit normally. (normal manual termination like control + C is interrupted since a shell isn't normally
+supposed to be exited)
+
+Changing the environment variable "PROMPT" will print a new prompt for the shell line. Changing the environment variable "ON_ERROR" will change the error message printed by an 
+unsuccessful command.
